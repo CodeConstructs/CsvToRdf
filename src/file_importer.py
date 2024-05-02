@@ -1,7 +1,7 @@
 from glob import glob
 import pandas as pd
 
-dict = {'':''}
+dict = {}
 
 def importFiles ():
     csvs = glob('./Files/*.csv')

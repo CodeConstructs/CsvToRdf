@@ -1,8 +1,8 @@
-import fileImporter
+import file_importer 
 import class_generator
 
 def main():
-    data = fileImporter.importFiles()
+    data = file_importer.importFiles()
     print(data.keys())
 
 if __name__ == "__main__":
