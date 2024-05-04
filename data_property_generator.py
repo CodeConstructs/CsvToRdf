@@ -11,14 +11,14 @@ def get_data_property(data, equivalent_labels) -> dict:
                 dp_name = equivalent_labels[data_property]
             else:
                 dp_name = data_property
-                if data_properties and dp_name in data_properties.keys():
-                    if class_key not in data_properties[dp_name]["rdfs:domain"]:
-                        data_properties[dp_name]["rdfs:domain"].append(class_key)
-                        print('Domain: "' + class_key + '" added to data property: ' + dp_name) 
-                    else:
-                        print(class_key + ' already exists in data property: ' + dp_name)
+            if data_properties and dp_name in data_properties.keys():
+                if class_key not in data_properties[dp_name]["rdfs:domain"]:
+                    data_properties[dp_name]["rdfs:domain"].append(class_key)
+                    print('Domain: "' + class_key + '" added to data property: ' + dp_name) 
                 else:
-                    data_properties[dp_name] = __create_new_data_property(class_key, dp_name, type_dict)
+                    print(class_key + ' already exists in data property: ' + dp_name)
+            else:
+                data_properties[dp_name] = __create_new_data_property(class_key, dp_name, type_dict)
             
     
     return data_properties

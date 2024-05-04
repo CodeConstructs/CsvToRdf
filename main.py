@@ -10,7 +10,7 @@ def main():
         "Programme": "Programme_name",
         "Academic_year": "Academic_Year",
         "Study_period": "Study_Period",
-        "Teacher_id": "Teacher _Id"}
+        "Teacher_id": "Teacher_Id"}
     
     data = file_importer.importFiles()
     # Used to format output but keep in mind that underscores may not be visible 
