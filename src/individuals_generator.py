@@ -30,7 +30,7 @@ def __create_individual_dict(file_name: str, individual_data: dict) -> dict:
 
     return {
         "ID": f"{file_name}_{unique_id}",
-        "rdf:type": {file_name},
+        "rdf:type": file_name,
         "data_properties": individual_data,
     }
 
