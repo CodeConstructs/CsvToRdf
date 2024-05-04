@@ -3,6 +3,7 @@ import data_property_generator
 import class_generator
 import pprint
 import utils
+import individuals_generator
 
 
 def main():
@@ -21,15 +22,18 @@ def main():
     data = file_importer.import_files()
     # Used to format output but keep in mind
     # that underscores may not be visible
-    pprint.pprint(data_property_generator.get_data_property(data, equivalent_labels))
+    # pprint.pprint(data_property_generator.get_data_property(data, equivalent_labels))
 
     rdf_classes = class_generator.get_class_json(
         data.keys()
     )  # generate the dict containing the json representation of rdf classes
     utils.dump_json(rdf_classes)  # dump for testing
 
-    print(data.keys())
-    print(type(data.keys()))
+    individuals = individuals_generator.generate_individuals_json(data)
+    utils.dump_json(individuals, file_name="individuals_json")
+
+    #    print(data.keys())
+    # print(type(data.keys()))
 
 
 if __name__ == "__main__":
