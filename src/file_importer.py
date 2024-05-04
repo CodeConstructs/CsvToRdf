@@ -1,14 +1,18 @@
 from glob import glob
 import pandas as pd
+import os
 
-dict = {}
 
-
-def import_files() -> dict:
+def import_files():
+    data_dict = {}
     csvs = glob("./Files/*.csv")
-    for csv in csvs:
-        name = csv[8:-4]
-        values = pd.read_csv(csv, sep=",")
-        dict[name] = values
+    for csv_file in csvs:
+        name = os.path.basename(csv_file)[:-4]
 
-    return dict
+        values = pd.read_csv(csv_file, sep=",")
+
+        values.columns = [col.replace(" ", "_") for col in values.columns]
+
+        data_dict[name] = values
+
+    return data_dict
