@@ -19,7 +19,8 @@ def main():
     }
 
     data = file_importer.import_files()
-    # Used to format output but keep in mind that underscores may not be visible
+    # Used to format output but keep in mind
+    # that underscores may not be visible
     pprint.pprint(data_property_generator.get_data_property(data, equivalent_labels))
 
     rdf_classes = class_generator.get_class_json(

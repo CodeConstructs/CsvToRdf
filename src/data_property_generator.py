@@ -66,4 +66,3 @@ def __infer_type(dp_name, type_dict) -> str:
             pass
 
     return "xsd:string"
-
