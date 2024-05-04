@@ -1,7 +1,7 @@
 from rdflib import Graph, Namespace, RDF, RDFS, XSD, Literal, URIRef
 
 
-def compile_rdf(data_properties, classes):
+def compile_rdf(data_properties, classes, individuals):
     
     # Load existing RDF file into RDF graph
     g = Graph()
@@ -9,6 +9,32 @@ def compile_rdf(data_properties, classes):
 
     # Define namespaces
     owl = Namespace("http://www.w3.org/2002/07/owl#")
+
+    # Add individuals
+    for individual in individuals['individuals']:
+        ind_uri = URIRef(individual['ID'])
+        g.add((ind_uri, RDF.type, URIRef(individual['rdf:type'])))
+
+        for data_property in individual['data_properties']:
+            prop_uri = URIRef(data_property)
+            # Get range
+            range_uri = __get_property_details(g, prop_uri)
+            # Get value of dp  
+            value = Literal(individual['data_properties'][data_property], datatype=range_uri)
+            # Add to graph
+            g.add((ind_uri, prop_uri, value))
+
+    # Add classes to the graph
+    for class_info in classes['classes']:
+
+        # Create URIRef for class ID
+        class_uri = URIRef(class_info['ID'])
+
+        # Add class
+        g.add((class_uri, RDF.type, owl.Class))
+
+        # Add label
+        g.add((class_uri, RDFS.label, Literal(class_info['rdfs:label'])))
 
     # Add properties to the graph
     for prop_id, prop_info in data_properties.items():
@@ -45,17 +71,11 @@ def compile_rdf(data_properties, classes):
         # Add subPropertyOf
         g.add((prop_uri, RDFS.subPropertyOf, owl.topDataProperty))
 
-    # Add classes to the graph
-    for class_info in classes['classes']:
-
-        # Create URIRef for class ID
-        class_uri = URIRef(class_info['ID'])
-
-        # Add class
-        g.add((class_uri, RDF.type, owl.Class))
-
-        # Add label
-        g.add((class_uri, RDFS.label, Literal(class_info['rdfs:label'])))
-
     # Serialize to Turtle format and save to the same file
     g.serialize(destination='./files/data.ttl', format='turtle')
+
+def __get_property_details(g, property_uri):
+
+    # Retrieve the range of a property from the graph.
+    for _, _, range_uri in g.triples((property_uri, RDFS.range, None)):
+        return range_uri 
