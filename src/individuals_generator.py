@@ -2,7 +2,7 @@ import uuid
 
 
 def generate_individuals_json(files: dict) -> dict:
-    """ """
+    """creates an array of individuals"""
     rdf_individuals = {"individuals": []}
 
     # Loop through each class.
@@ -20,12 +20,7 @@ def generate_individuals_json(files: dict) -> dict:
 
 
 def __create_individual_dict(file_name: str, individual_data: dict) -> dict:
-    """ """
-
-    # TODO:
-    # 1. Get the unique id for each individual
-    # 2. for each row, for each column name, make a data property dict: {"data_property":"data_value"}
-    # Consideration after: Do we need to handle the type we give it?
+    """creates a dict for the individual's row"""
     unique_id = __unique_id_generator()
 
     return {
