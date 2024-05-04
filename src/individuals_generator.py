@@ -29,8 +29,8 @@ def __create_individual_dict(file_name: str, individual_data: dict) -> dict:
     unique_id = __unique_id_generator()
 
     return {
-        "URI": f"www.assignment3.com/{file_name}_{unique_id}",
-        "type": f"rdf:type {file_name}",
+        "ID": f"{file_name}_{unique_id}",
+        "rdf:type": {file_name},
         "data_properties": individual_data,
     }
 
