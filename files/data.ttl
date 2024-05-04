@@ -1,0 +1,233 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<Academic_Year> a owl:DatatypeProperty ;
+    rdfs:label "Academic_Year" ;
+    rdfs:domain <Assigned_Hours>,
+        <Course_Instances>,
+        <Programme_Courses> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Assistant_Hours> a owl:DatatypeProperty ;
+    rdfs:label "Assistant_Hours" ;
+    rdfs:domain <Course_plannings> ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Course_Instance> a owl:DatatypeProperty ;
+    rdfs:label "Course_Instance" ;
+    rdfs:domain <Assigned_Hours>,
+        <Registrations> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Course_Type> a owl:DatatypeProperty ;
+    rdfs:label "Course_Type" ;
+    rdfs:domain <Programme_Courses> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Course_code> a owl:DatatypeProperty ;
+    rdfs:label "Course_code" ;
+    rdfs:domain <Assigned_Hours>,
+        <Course_Instances>,
+        <Courses>,
+        <Reported_Hours> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Course_name> a owl:DatatypeProperty ;
+    rdfs:label "Course_name" ;
+    rdfs:domain <Course_plannings>,
+        <Courses>,
+        <Programme_Courses> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Credits> a owl:DatatypeProperty ;
+    rdfs:label "Credits" ;
+    rdfs:domain <Courses> ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Department_name> a owl:DatatypeProperty ;
+    rdfs:label "Department_name" ;
+    rdfs:domain <Courses>,
+        <Programmes>,
+        <Senior_Teachers>,
+        <Teaching_Assistants> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Director> a owl:DatatypeProperty ;
+    rdfs:label "Director" ;
+    rdfs:domain <Programmes> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Division_name> a owl:DatatypeProperty ;
+    rdfs:label "Division_name" ;
+    rdfs:domain <Courses>,
+        <Senior_Teachers>,
+        <Teaching_Assistants> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Examiner> a owl:DatatypeProperty ;
+    rdfs:label "Examiner" ;
+    rdfs:domain <Course_Instances> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Grade> a owl:DatatypeProperty ;
+    rdfs:label "Grade" ;
+    rdfs:domain <Registrations> ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Graduated> a owl:DatatypeProperty ;
+    rdfs:label "Graduated" ;
+    rdfs:domain <Students> ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Hours> a owl:DatatypeProperty ;
+    rdfs:label "Hours" ;
+    rdfs:domain <Assigned_Hours>,
+        <Reported_Hours> ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Instance_id> a owl:DatatypeProperty ;
+    rdfs:label "Instance_id" ;
+    rdfs:domain <Course_Instances> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Level> a owl:DatatypeProperty ;
+    rdfs:label "Level" ;
+    rdfs:domain <Courses> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Owned_By> a owl:DatatypeProperty ;
+    rdfs:label "Owned_By" ;
+    rdfs:domain <Courses> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Planned_number_of_Students> a owl:DatatypeProperty ;
+    rdfs:label "Planned_number_of_Students" ;
+    rdfs:domain <Course_plannings> ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Programme_code> a owl:DatatypeProperty ;
+    rdfs:label "Programme_code" ;
+    rdfs:domain <Programme_Courses>,
+        <Programmes> ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Programme_name> a owl:DatatypeProperty ;
+    rdfs:label "Programme_name" ;
+    rdfs:domain <Programmes>,
+        <Students> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Senior_Hours> a owl:DatatypeProperty ;
+    rdfs:label "Senior_Hours" ;
+    rdfs:domain <Course_plannings> ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Status> a owl:DatatypeProperty ;
+    rdfs:label "Status" ;
+    rdfs:domain <Registrations> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Student_id> a owl:DatatypeProperty ;
+    rdfs:label "Student_id" ;
+    rdfs:domain <Registrations>,
+        <Students> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Student_name> a owl:DatatypeProperty ;
+    rdfs:label "Student_name" ;
+    rdfs:domain <Students> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Study_Period> a owl:DatatypeProperty ;
+    rdfs:label "Study_Period" ;
+    rdfs:domain <Assigned_Hours>,
+        <Course_Instances> ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Study_Year> a owl:DatatypeProperty ;
+    rdfs:label "Study_Year" ;
+    rdfs:domain <Programme_Courses> ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Teacher_Id> a owl:DatatypeProperty ;
+    rdfs:label "Teacher_Id" ;
+    rdfs:domain <Assigned_Hours>,
+        <Reported_Hours>,
+        <Senior_Teachers>,
+        <Teaching_Assistants> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Teacher_name> a owl:DatatypeProperty ;
+    rdfs:label "Teacher_name" ;
+    rdfs:domain <Senior_Teachers>,
+        <Teaching_Assistants> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Year> a owl:DatatypeProperty ;
+    rdfs:label "Year" ;
+    rdfs:domain <Students> ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<Reported_Hours> a owl:Class ;
+    rdfs:label "Reported_Hours" .
+
+<Course_plannings> a owl:Class ;
+    rdfs:label "Course_plannings" .
+
+<Programmes> a owl:Class ;
+    rdfs:label "Programmes" .
+
+<Registrations> a owl:Class ;
+    rdfs:label "Registrations" .
+
+<Senior_Teachers> a owl:Class ;
+    rdfs:label "Senior_Teachers" .
+
+<Teaching_Assistants> a owl:Class ;
+    rdfs:label "Teaching_Assistants" .
+
+<Course_Instances> a owl:Class ;
+    rdfs:label "Course_Instances" .
+
+<Programme_Courses> a owl:Class ;
+    rdfs:label "Programme_Courses" .
+
+<Students> a owl:Class ;
+    rdfs:label "Students" .
+
+<Assigned_Hours> a owl:Class ;
+    rdfs:label "Assigned_Hours" .
+
+<Courses> a owl:Class ;
+    rdfs:label "Courses" .
+

@@ -19,7 +19,7 @@ def __create_dict(file_name: str) -> dict:
     represents the class name
     """
     return {
-        "ID": f"www.assignment3.com/{file_name}",
-        "type": "rdf:type owl:Class",
-        "label": f'rdfs:label "{file_name}"',
+        "ID": file_name,
+        "rdf:type ": "owl:Class",
+        "rdfs:label": file_name,
     }

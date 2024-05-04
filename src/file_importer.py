@@ -5,7 +5,7 @@ import pandas as pd
 
 def import_files():
     data_dict = {}
-    csvs = glob("./Files/*.csv")
+    csvs = glob("./files/*.csv")
     for csv_file in csvs:
         name = os.path.basename(csv_file)[:-4]
 

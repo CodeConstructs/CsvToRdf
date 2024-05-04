@@ -1,6 +1,7 @@
 import file_importer
 import data_property_generator
 import class_generator
+import rdf_generator
 import pprint
 import utils
 
@@ -21,11 +22,14 @@ def main():
     data = file_importer.import_files()
     # Used to format output but keep in mind
     # that underscores may not be visible
-    pprint.pprint(data_property_generator.get_data_property(data, equivalent_labels))
-
+    data_properties = data_property_generator.get_data_property(data, equivalent_labels)
+    
     rdf_classes = class_generator.get_class_json(
         data.keys()
     )  # generate the dict containing the json representation of rdf classes
+
+    rdf_generator.compile_rdf(data_properties, rdf_classes)
+
     utils.dump_json(rdf_classes)  # dump for testing
 
     print(data.keys())
