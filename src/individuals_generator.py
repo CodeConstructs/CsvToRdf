@@ -16,6 +16,8 @@ def generate_individuals_json(files: dict, equivalent_labels: dict) -> dict:
             for dp in individual_data:
                 if dp in equivalent_labels:
                     temp_dict[equivalent_labels[dp]] = individual_data[dp]
+                else:
+                    temp_dict[dp] = individual_data[dp]
             rdf_individuals["individuals"].append(
                 __create_individual_dict(file_name, temp_dict)
             )
