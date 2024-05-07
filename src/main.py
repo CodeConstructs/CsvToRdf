@@ -15,9 +15,9 @@ def main():
         "Department": "Department_name",
         "Course": "Course_name",
         "Programme": "Programme_name",
-        "Academic_year": "Academic_Year",
-        "Study_period": "Study_Period",
-        "Teacher_id": "Teacher_Id",
+        "Academic_Year": "Academic_year",
+        "Study_Period": "Study_period",
+        "Teacher_Id": "Teacher_id",
     }
 
     data = file_importer.import_files()
@@ -34,7 +34,7 @@ def main():
 
     utils.dump_json(rdf_classes)  # dump for testing
 
-    individuals = individuals_generator.generate_individuals_json(data)
+    individuals = individuals_generator.generate_individuals_json(data, equivalent_labels)
     utils.dump_json(individuals, file_name="individuals_json")
 
     rdf_generator.compile_rdf(data_properties, rdf_classes, individuals)

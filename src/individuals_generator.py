@@ -1,7 +1,7 @@
 import uuid
 
 
-def generate_individuals_json(files: dict) -> dict:
+def generate_individuals_json(files: dict, equivalent_labels: dict) -> dict:
     """creates an array of individuals"""
     rdf_individuals = {"individuals": []}
 
@@ -12,8 +12,12 @@ def generate_individuals_json(files: dict) -> dict:
     ) in files.items():
         # Loop through each individual within a class
         for individual_data in file_data.to_dict(orient="records"):
+            temp_dict = {}
+            for dp in individual_data:
+                if dp in equivalent_labels:
+                    temp_dict[equivalent_labels[dp]] = individual_data[dp]
             rdf_individuals["individuals"].append(
-                __create_individual_dict(file_name, individual_data)
+                __create_individual_dict(file_name, temp_dict)
             )
 
     return rdf_individuals
