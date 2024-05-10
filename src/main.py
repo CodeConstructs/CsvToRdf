@@ -19,12 +19,25 @@ def main():
         "Study_Period": "Study_period",
         "Teacher_Id": "Teacher_id",
     }
+    class_abbreviations = {
+        "Assigned_Hours": "AssHrs",
+        "Course_Instances": "CrsInst",
+        "Course_Plannings": "CrsPlan",
+        "Courses": "Crs",
+        "Programme_Courses": "ProgCrs",
+        "Programmes": "Prog",
+        "Registrations": "Reg",
+        "Reported_Hours": "RepHrs",
+        "Senior_Teachers": "SenTch",
+        "Students": "Stu",
+        "Teaching_Assistants": "TA",
+    }
 
     data = file_importer.import_files()
     # Used to format output but keep in mind
     # that underscores may not be visible
 
-    data_properties = data_property_generator.get_data_property(data, equivalent_labels)
+    data_properties = data_property_generator.get_data_property(data, equivalent_labels, class_abbreviations)
 
     rdf_classes = class_generator.get_class_json(
         data.keys()
@@ -34,7 +47,7 @@ def main():
 
     utils.dump_json(rdf_classes)  # dump for testing
 
-    individuals = individuals_generator.generate_individuals_json(data, equivalent_labels)
+    individuals = individuals_generator.generate_individuals_json(data, equivalent_labels, class_abbreviations)
     utils.dump_json(individuals, file_name="individuals_json")
 
     rdf_generator.compile_rdf(data_properties, rdf_classes, individuals)
