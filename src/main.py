@@ -22,7 +22,7 @@ def main():
     class_abbreviations = {
         "Assigned_Hours": "AssHrs",
         "Course_Instances": "CrsInst",
-        "Course_Plannings": "CrsPlan",
+        "Course_plannings": "CrsPlan",
         "Courses": "Crs",
         "Programme_Courses": "ProgCrs",
         "Programmes": "Prog",
